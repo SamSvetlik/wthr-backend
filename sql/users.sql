@@ -4,12 +4,14 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    perfectTemp INT NOT NULL
 );
 
 INSERT INTO users VALUES (
     null,
     "test",
     "test@test.com",
-    "test123"
+    "test123",
+    70
 )
