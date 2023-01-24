@@ -1,4 +1,3 @@
-const pool = require('../sql/connection')
 const express = require('express');
 const router = express.Router();
 const signupControllers = require('../controllers/signup')
