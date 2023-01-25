@@ -27,6 +27,11 @@ app.use('/users', authenticateToken, userRoutes)
 app.use('/signup', signupRoutes)
 app.use('/signin', signinRoutes)
 
+app.get("/", (req, res)=> {
+    res.json({
+        message: "Welcome to the wthr backend!"
+    })
+})
 
 
 app.listen(PORT, ()=> console.log(`I am listening on port ${PORT}`))
