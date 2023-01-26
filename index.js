@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
 const pool = require('./sql/connection')
 const userRoutes = require('./routes/users')
 const signupRoutes = require('./routes/signup')
@@ -22,8 +23,22 @@ const authenticateToken = (req, res, next) => {
     })
 }
 
+// function setHeader(req, res, next) {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+
+//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT");
+
+//     res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type");
+
+//     res.setHeader("Access-Control-Allow-Credentials", "true" );
+
+//     next()
+// }
+
+app.use(cors())
+// app.use(setHeader())
 app.use(express.json());
-app.use('/users', authenticateToken, userRoutes)
+app.use('/users',  userRoutes)
 app.use('/signup', signupRoutes)
 app.use('/signin', signinRoutes)
 

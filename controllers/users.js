@@ -8,9 +8,12 @@ const list = (req, res) => {
 }
 
 const show = (req, res) => {
-    const {id} = req.params
-    pool.query(`SELECT * FROM users WHERE id = ${id}`, (err, rows, fields)=> {
-        res.json(rows)
+    const {email} = req.params
+    pool.query(`SELECT * FROM users WHERE email = '${email}'`, (err, rows, fields)=> {
+        if (err) {
+            res.sendStatus(404)
+        }
+        else res.json(rows)
     })
 }
 

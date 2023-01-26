@@ -5,7 +5,7 @@ const userControllers = require('../controllers/users')
 
 router.get('/', userControllers.list)
 
-router.get('/:id', userControllers.show)
+router.get('/:email', userControllers.show)
 
 router.post('/', userControllers.create)
 
