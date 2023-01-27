@@ -38,7 +38,7 @@ const authenticateToken = (req, res, next) => {
 app.use(cors())
 // app.use(setHeader())
 app.use(express.json());
-app.use('/users',  userRoutes)
+app.use('/users', authenticateToken,  userRoutes)
 app.use('/signup', signupRoutes)
 app.use('/signin', signinRoutes)
 
