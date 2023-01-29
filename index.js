@@ -7,6 +7,7 @@ const pool = require('./sql/connection')
 const userRoutes = require('./routes/users')
 const signupRoutes = require('./routes/signup')
 const signinRoutes = require('./routes/signin')
+const weatherRoutes = require('./routes/weather')
 
 const PORT = process.env.PORT || 5000
 
@@ -41,6 +42,7 @@ app.use(express.json());
 app.use('/users', authenticateToken,  userRoutes)
 app.use('/signup', signupRoutes)
 app.use('/signin', signinRoutes)
+app.use('/weather', weatherRoutes)
 
 app.get("/", (req, res)=> {
     res.json({
